@@ -27,7 +27,7 @@ int main(int argc, char* argv[]){
 
     for(;;){
         const std::vector<double>& dvals = fg.readNormalized();
-        img = 0; // clear the image
+        img = (int) 0; // clear the image
         for(int i = 0; i < count; ++i){
 	    const int y = i*LPF+5;
 	    const int x = dvals[i]*100; // lines are 0 to 100 pixels wide
