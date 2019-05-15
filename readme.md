@@ -4,9 +4,9 @@ FiberGrid is an optical sensor framework for robotics.  If you don't want to spe
 
 ### What you need
 * Cheap plastic insulated end glow optical fiber.  I bought 100ft of 1mm black jacket star ceiling optic lighting fiber for about $15USD from aliexpress.com
-* LEDs or a tiny flashlight.  Do not use lasers as they can burn out the CCD sensors in your camera.
 * A camera.  Depending on your needs it can be a $5 usb cam or a Raspberry PI cam or in my case a $65 Kayeton Technology 330fps at 640x360 with a 4mm manual focus lens usb camera from aliexpress.  Camera framerate is important but resolution is not!  It should also be able to focus on objects close to the lens.  Manual focus is the best.
-* Two small plastic bottles or film canisters that blocks light.  I painted a playdoh container black.
+* LEDs or a tiny flashlight.  Do not use lasers as they can burn out the CCD sensors in your camera.
+* Two small plastic bottles or containers or film canisters that block light.
 * A piece of flat polarized plastic (film) from an old monitor or disposable 3D movie theater glasses if you want to make rotation sensors.
 
 ### How to make it
