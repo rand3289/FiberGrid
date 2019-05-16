@@ -3,9 +3,9 @@
 FiberGrid is an optical sensor framework for robotics.  If you don't want to spend years learning about electronics, how to interface sensors to microcontrollers and DSP but you own a glue gun and you are ready to jump into action, this project is for you!  Forget arduino, Raspberry PI and MCUs.  There is an easier and much cheaper way to add sensors to your projects.  Add hundreds or thousands of sensors to your robots for a price of cheap plastic optic fiber.  Glue-gun robotics is the future!
 
 ### What you need
-* Cheap plastic insulated end glow optical fiber.  I bought 100ft of 1mm black jacket star ceiling optic lighting fiber for about $15USD from aliexpress.com
+* Cheap plastic insulated end glow optical fiber.  I bought 100ft of 0.75mm black jacket star ceiling optic lighting fiber for about $15USD from aliexpress.com  It consists of a very loose-fitting jacket over a plastic core.
 * A camera.  Depending on your needs it can be a $5 usb cam or a Raspberry PI cam or in my case a $65 Kayeton Technology 330fps at 640x360 with a 4mm manual focus lens usb camera from aliexpress.  Camera framerate is important but resolution is not!  It should also be able to focus on objects close to the lens.  Manual focus is the best.
-* LEDs or a tiny flashlight.  Do not use lasers as they can burn out the CCD sensors in your camera.
+* LEDs or a tiny flashlight.  Do not use lasers as they can burn out the CCD sensors in your camera.  Most commercial fiber lamps might be too bright.
 * Two small plastic bottles or containers or film canisters that block light.
 
 ### How to make it
