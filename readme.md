@@ -34,5 +34,11 @@ Git clone. Change to the directory and type make.  Build the hardware and connec
 ### Notes
 FPS of your camera is important.  High FPS allows FiberGrid to read sensor values faster.  Current usb mice have optical sensors in them that have hundreds of pixels and internal framerates of thousands of frames per second.  Many of them allow raw image readout.  Reading them at high FPS is another story.  I heard about read speeds of 10fps over serial.  Mouse sensors could be used to add FiberGrid support to low end MCUs without USB.  As of right now you will need at least a Pi zero.  If you succeed at reading any mouse image sensors at 30 fps or higher using any bus or find inexpensive high fps cameras or CCD/CMOS image sensors, please let me know!
 
+It is easy to make position sensors.  Measuring force is harder.  Here is what comes to mind:
+* Find a stiff yet compliant semi-transparent matherial.  Possibly a semi-transparent liquid.
+* Stiff reflective matherial that changes the amount of light reflected at a certain angle when bent.
+* Hydraulic / pneumatic load cells that indirectly change position of the fiber.
+The goal is to make it somewhat linear and require as little displacement as possible.  Please share your load cell  designs with me.
+
 ### Have fun!
 Send me a link to your creations or pictures and suggestions to  toandrey(at)yahoo(dot)com
