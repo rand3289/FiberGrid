@@ -17,6 +17,11 @@ Put a camera into a hole on the other side of your canister.  Glue gun time! Plu
 
 Take the other half of the fibers, make a bunch out of them and insert it into a hole in the second canister.  Insert a flashlight in a hole on the other side or wire up some LEDs and put them inside of the canister.  Put a reflector (aluminum foil?) behind LEDs for better efficiency.  Put something to disperse light in front of LEDs.  For example a slice of plastic from a milk jug.  Alternatively LEDs can be placed within individual sensors.
 
+### How the software works
+There are two parts to FiberGrid software.  FiberCal is a calibration program that finds centers and bounds of the fibers in the camera's visual field and saves them to a C++ header file (fiberinit.h).  Second is the FiberGrid "driver".  It includes the header file during compilation and provides a simple API for reading your sensors.  Both programs rely on OpenCV library to read sensor values from the bundle of optic fibers.  Driver and calibration software were separated for two reasons.  Detecting fibers can be done more accurately with human interaction. You have an ability to change threshold, fiber size and add or remove fibers manually by clicking.  The location of the fibers should never change if you have made the hardware device properly.  The second reason is portability.  The driver could probably be written in 50 lines of python code or re-written in C++ without using OpenCV or written in Basic or in javascript pulling an image from a web cam and the calibration utility does not need to change.
+
+Git clone. Change to the directory and type make.  Build the hardware and connect it to your computer.  Run fc (fiberCal) and generate fiberinit.h by pressing "s".  Play with fc sliders to get the best fiber detection (green squares around fibers).  Add fiberinit.h, fibergrid.h and fibergrid.cpp to your project or run ft (fibertest.cpp).  Use FiberGrid::read() or FiberGrid::readNormalized() to get sensor values!  Run your project to see the sensor values on a debug screen.  Comment out FIBERGRID_DEBUG to disable driver debug screen.
+
 ### How the sensors work
 You can make a myriad of sensors for use with fibergrid.  Fibers can be used as compound eyes as-is.  Sensors can be 3D printed.  Made from cardboard or drinking straws and chewing gum :)  Try placing one fiber from the emitter (the canister with LEDs) and another fiber from the camera into each side of a hollow cofee stirrer (straw) or fiber cladding.  While watching the cam on the screen, push the fibers in and out or bend the junction.  Notice how the brightness of one dot on the screen changes.  You've just made your first sensor.
 
@@ -24,19 +29,14 @@ It is possible to use a piece of flat polarized plastic (film) from disposable 3
 
 Depending on your fiber, bending it might scatter light and change the sensor values.  To compensate for this, bundle two fibers going to a sensor together.  One fiber will be connected to a sensor and another directly to an emitter fiber via an inflexible junction.  This emitter fiber has to be bundled with an emitter fiber going to the sensor.  Alternatively an LED can be placed directly inside the sensor and both fibers lit up by one LED.  Decrease in light intensity  due to physical deformation of the fiber can be compensated in software by adjusting the sensor value with respect to the second fiber value change.
 
-### How the software works
-There are two parts to FiberGrid software.  FiberCal is a calibration program that finds centers and bounds of the fibers in the camera's visual field and saves them to a C++ header file (fiberinit.h).  Second is the FiberGrid "driver".  It includes the header file during compilation and provides a simple API for reading your sensors.  Both programs rely on OpenCV library to read sensor values from the bundle of optic fibers.  Driver and calibration software were separated for two reasons.  Detecting fibers can be done more accurately with human interaction. You have an ability to change threshold, fiber size and add or remove fibers manually by clicking.  The location of the fibers should never change if you have made the hardware device properly.  The second reason is portability.  The driver could probably be written in 50 lines of python code or re-written in C++ without using OpenCV or written in Basic or in javascript pulling an image from a web cam and the calibration utility does not need to change.
-
-Git clone. Change to the directory and type make.  Build the hardware and connect it to your computer.  Run fc (fiberCal) and generate fiberinit.h by pressing "s".  Play with fc sliders to get the best fiber detection (green squares around fibers).  Add fiberinit.h, fibergrid.h and fibergrid.cpp to your project or run ft (fibertest.cpp).  Use FiberGrid::read() or FiberGrid::readNormalized() to get sensor values!  Run your project to see the sensor values on a debug screen.  Comment out FIBERGRID_DEBUG to disable driver debug screen.
-
-### Notes
-FPS of your camera is important.  High FPS allows FiberGrid to read sensor values faster.  Current usb mice have optical sensors in them that have hundreds of pixels and internal framerates of thousands of frames per second.  Many of them allow raw image readout.  Reading them at high FPS is another story.  I heard about read speeds of 10fps over serial.  Mouse sensors could be used to add FiberGrid support to low end MCUs without USB.  As of right now you will need at least a Pi zero.  If you succeed at reading any mouse image sensors at 30 fps or higher using any bus or find inexpensive high fps cameras or CCD/CMOS image sensors, please let me know!
-
 It is easy to make position sensors.  Measuring force is harder.  Here is what comes to mind:
-* Find a stiff yet compliant semi-transparent matherial.  Possibly a semi-transparent liquid.
+* Find a stiff yet compliant semi-transparent matherial / 3D printer filament or a semi-transparent liquid.
 * Stiff reflective matherial that changes the amount of light reflected at a certain angle when bent.
 * Hydraulic / pneumatic load cells that indirectly change position of the fiber.
 The goal is to make it somewhat linear, require as little displacement as possible and stable over a good temperature range.  Please share your load cell designs with me.
+
+### Notes
+FPS of your camera is important.  High FPS allows FiberGrid to read sensor values faster.  Current usb mice have optical sensors in them that have hundreds of pixels and internal framerates of thousands of frames per second.  Many of them allow raw image readout.  Reading them at high FPS is another story.  I've heard about read speeds of only 10fps over serial.  At that speed mouse sensors could only be used to add FiberGrid support to low end MCUs without USB.  If you succeed at reading any mouse image sensors at 30 fps or higher using any bus or find inexpensive high fps cameras or CCD/CMOS image sensors, please let me know!
 
 ### Have fun!
 Send me a link to your creations or pictures and suggestions to  toandrey(at)yahoo(dot)com
