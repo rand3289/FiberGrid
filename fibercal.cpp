@@ -4,6 +4,7 @@
 // to link with OpenCV 3.x binaries:
 // g++ fibercal.cpp -lopencv_core -lopencv_highgui -lopencv_videoio -lopencv_imgcodecs -lopencv_imgproc -ofc
 #include <opencv2/opencv.hpp>
+#include "ocvdef.h"
 #include <iostream>
 #include <fstream>
 #include <iomanip> // format stream printing

@@ -3,7 +3,7 @@
 # LDFLAGS=-lopencv_core -lopencv_highgui -lopencv_imgproc
 # if they are 3.x version, use this line:
 LDFLAGS=-lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_videoio -lopencv_imgcodecs
-CFLAGS=-g -Wall -std=c++11
+CFLAGS=-g -Wall -std=c++11 -I /usr/include/opencv4
 CC=g++
 EXE1=fc
 EXE2=ft
@@ -14,14 +14,14 @@ OBJECTS=$(SOURCES:.cpp=.o)
 all: $(EXE1) $(EXE2)
 
 $(EXE1): $(OBJECTS)
-	$(CC) $(LDFLAGS) fibercal.o -o $(EXE1)
+	$(CC) fibercal.o -o $(EXE1) $(LDFLAGS)
 
 $(EXE2): $(OBJECTS)
-	$(CC) $(LDFLAGS) fibertest.o fibergrid.o -o $(EXE2)
+	$(CC) fibertest.o fibergrid.o -o $(EXE2) $(LDFLAGS)
 
 .cpp.o: $(SOURCES) $(HEADERS)
 	$(CC) -c $(CFLAGS) $< -o $@
 
 
 clean:
-	rm *.o
+	/bin/rm -f *.o $(EXE1) $(EXE2)

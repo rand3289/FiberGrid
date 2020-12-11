@@ -2,6 +2,7 @@
 #define INCLUDED_FIBERGRID_H
 
 #include <opencv2/opencv.hpp>
+#include "ocvdef.h"
 #include <vector>
 
 
